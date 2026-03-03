@@ -3,16 +3,16 @@ AI Movie Insight Builder
 Live Application:
 https://ai-movie-insight-builder-pi.vercel.app/
 
-1. Project Overview
+Project Overview
 
-AI Movie Insight Builder is a full-stack web application that allows users to retrieve detailed movie information using an IMDb ID and generate structured audience sentiment insights.
+AI Movie Insight Builder is a full-stack web application that enables users to retrieve structured movie information using an IMDb ID and generate audience sentiment insights.
 
-The application integrates external movie metadata services and applies rule-based sentiment classification to simulate AI-powered audience analysis.
+The application integrates external movie metadata services and applies rule-based sentiment classification logic to simulate AI-powered audience analysis.
 
 This project was developed as part of a Full-Stack Developer Internship evaluation.
 
-2. Core Features
-2.1 Movie Data Retrieval
+Core Features
+1. Movie Data Retrieval
 
 Input IMDb movie ID (e.g., tt0133093)
 
@@ -32,13 +32,13 @@ Cast List
 
 Ratings Breakdown (IMDb, Rotten Tomatoes, etc.)
 
-2.2 Audience Sentiment Analysis
+2. Audience Sentiment Analysis
 
-Aggregates rating sources
+Aggregates multiple rating sources
 
-Calculates a normalized audience score
+Computes a normalized audience score
 
-Classifies sentiment as:
+Classifies sentiment into:
 
 Positive
 
@@ -46,27 +46,25 @@ Mixed
 
 Negative
 
-Generates a structured audience insight summary
+Generates a structured summary explaining the classification
 
-2.3 Input Validation & Edge Case Handling
+3. Input Validation & Edge Case Handling
 
 Validates IMDb ID format (tt followed by 7–8 digits)
 
 Handles:
 
-Invalid input formats
+Invalid ID formats
 
-Missing movie results
+Movie not found cases
 
 API failures
 
 Missing poster images
 
-Displays clear, user-friendly error messages
+Displays user-friendly error messages
 
-3. Technical Architecture
-3.1 Technology Stack
-
+Technology Stack
 Frontend
 
 Next.js (App Router)
@@ -79,7 +77,7 @@ Backend
 
 Next.js API Routes (Server Functions)
 
-External Integration
+External API
 
 OMDb API for movie metadata
 
@@ -91,7 +89,7 @@ Deployment
 
 Vercel (Production-ready deployment)
 
-3.2 Project Structure
+Project Structure
 src/
  ├── app/
  │    ├── api/
@@ -103,31 +101,31 @@ src/
  │    └── SentimentBox.js
  └── utils/
       └── validation.js
-3.3 Design Principles
+Architecture & Design Decisions
 
-Modular component-based architecture
+Used Next.js API routes to maintain a unified full-stack architecture.
 
-Separation of concerns
+Structured components for separation of concerns.
 
-Reusable utility functions
+Extracted validation logic into a reusable utility function.
 
-Clean API abstraction layer
+Implemented deterministic sentiment classification for transparency and explainability.
 
-Defensive error handling
+Used environment variables to secure API keys.
 
-Environment-based configuration
+The design prioritizes modularity, readability, and scalability.
 
-4. Sentiment Analysis Logic
+Sentiment Analysis Logic
 
-The application computes sentiment through a rating aggregation strategy:
+The sentiment classification is computed as follows:
 
 Extract IMDb rating.
 
 Extract Rotten Tomatoes rating (if available).
 
-Normalize both values to a percentage scale.
+Normalize values to percentage scale.
 
-Compute a combined audience score.
+Compute an aggregated audience score.
 
 Apply classification thresholds:
 
@@ -136,93 +134,79 @@ Score Range	Classification
 50–74	Mixed
 Below 50	Negative
 
-A structured summary is generated based on classification.
+A structured audience insight summary is generated based on the classification result.
 
-This approach ensures deterministic, explainable sentiment output.
+This ensures deterministic and explainable sentiment output.
 
-5. Deployment
-
-The application is deployed using Vercel.
-
-Environment variables are configured securely via the Vercel dashboard.
-
-Production Environment Variable
-OMDB_API_KEY=your_api_key
-6. Local Development Setup
-6.1 Clone Repository
+Local Development Setup
+1. Clone the Repository
 git clone https://github.com/your-username/ai-movie-insight-builder.git
-6.2 Install Dependencies
+2. Install Dependencies
 npm install
-6.3 Configure Environment Variables
+3. Configure Environment Variables
 
 Create a .env.local file in the root directory:
 
 OMDB_API_KEY=your_api_key_here
-6.4 Run Development Server
+4. Run Development Server
 npm run dev
 
 Open:
 
 http://localhost:3000
-7. Running Tests
+Running Tests
 
 Unit tests are included for IMDb ID validation logic.
 
 Run:
 
 npm test
-8. Code Quality & Best Practices
+Deployment
 
-Modular file structure
+The application is deployed using Vercel.
 
-Reusable components
+Environment variables are configured securely within the Vercel dashboard:
 
-Utility-based validation
+OMDB_API_KEY=your_api_key
 
-Clean naming conventions
+The production build is accessible via the live application link above.
 
-Error handling for edge cases
+Assumptions
 
-Production-ready environment configuration
+Sentiment is derived from aggregated rating data rather than raw review text.
 
-Deployed live application for review
+The OMDb API free tier provides sufficient metadata for demonstration.
 
-9. Assumptions
+Deterministic sentiment logic was chosen for clarity and explainability.
 
-Audience sentiment is derived from aggregated rating sources rather than direct review scraping.
+Future Improvements
 
-The OMDb API free tier provides sufficient metadata for demonstration purposes.
+Integrate NLP-based sentiment analysis using review data
 
-Deterministic sentiment logic is used in place of large language model inference for simplicity and scalability.
+Implement server-side caching for repeated queries
 
-10. Future Enhancements
+Add accessibility enhancements
 
-Real review scraping and NLP-based sentiment analysis
+Introduce advanced filtering (genre, year range)
 
-Caching layer for repeated queries
+Add search history or bookmarking functionality
 
-Improved accessibility support
+Improve performance optimization
 
-Advanced filtering (genre, year range)
-
-Save/search history functionality
-
-Performance optimization with caching strategies
-
-11. Evaluation Criteria Alignment
+Evaluation Criteria Alignment
 
 This implementation satisfies:
 
-Functional Requirements
+Full functional requirements
 
-Clean Code & Modular Architecture
+Clean, modular architecture
 
-Edge Case Handling
+Proper validation and error handling
 
-Basic Unit Testing
+Basic unit testing
 
-Live Deployment
+Responsive UI
 
-Modern Responsive UI
+Live deployment without local setup
 
-The application is fully functional, production-ready, and accessible via the provided live link.
+The application is production-ready and structured according to modern full-stack best practices.
