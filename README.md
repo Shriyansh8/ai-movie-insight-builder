@@ -1,18 +1,18 @@
-AI Movie Insight Builder
+🎬 AI Movie Insight Builder
 
 Live Application:
-https://ai-movie-insight-builder-pi.vercel.app/
+🔗 https://ai-movie-insight-builder-pi.vercel.app/
 
-Project Overview
+🚀 Project Overview
 
-AI Movie Insight Builder is a full-stack web application that enables users to retrieve structured movie information using an IMDb ID and generate audience sentiment insights.
+AI Movie Insight Builder is a full-stack web application that allows users to retrieve structured movie information using an IMDb ID and generate audience sentiment insights.
 
 The application integrates external movie metadata services and applies rule-based sentiment classification logic to simulate AI-powered audience analysis.
 
 This project was developed as part of a Full-Stack Developer Internship evaluation.
 
-Core Features
-1. Movie Data Retrieval
+✨ Core Features
+🎥 Movie Data Retrieval
 
 Input IMDb movie ID (e.g., tt0133093)
 
@@ -32,23 +32,23 @@ Cast List
 
 Ratings Breakdown (IMDb, Rotten Tomatoes, etc.)
 
-2. Audience Sentiment Analysis
+🧠 Audience Sentiment Analysis
 
 Aggregates multiple rating sources
 
-Computes a normalized audience score
+Computes normalized audience score
 
 Classifies sentiment into:
 
-Positive
+🟢 Positive
 
-Mixed
+🟡 Mixed
 
-Negative
+🔴 Negative
 
 Generates a structured summary explaining the classification
 
-3. Input Validation & Edge Case Handling
+🛡 Input Validation & Edge Case Handling
 
 Validates IMDb ID format (tt followed by 7–8 digits)
 
@@ -64,10 +64,10 @@ Missing poster images
 
 Displays user-friendly error messages
 
-Technology Stack
+🏗 Technology Stack
 Frontend
 
-Next.js (App Router)
+⚡ Next.js (App Router)
 
 React
 
@@ -89,7 +89,7 @@ Deployment
 
 Vercel (Production-ready deployment)
 
-Project Structure
+📁 Project Structure
 src/
  ├── app/
  │    ├── api/
@@ -101,21 +101,21 @@ src/
  │    └── SentimentBox.js
  └── utils/
       └── validation.js
-Architecture & Design Decisions
+🏛 Architecture & Design Decisions
 
-Used Next.js API routes to maintain a unified full-stack architecture.
+Used Next.js API routes for unified full-stack structure.
 
-Structured components for separation of concerns.
+Structured reusable components for separation of concerns.
 
-Extracted validation logic into a reusable utility function.
+Extracted validation logic into utility functions for testability.
 
-Implemented deterministic sentiment classification for transparency and explainability.
+Implemented deterministic sentiment logic for transparency.
 
-Used environment variables to secure API keys.
+Secured API keys using environment variables.
 
-The design prioritizes modularity, readability, and scalability.
+The design prioritizes modularity, maintainability, and scalability.
 
-Sentiment Analysis Logic
+📊 Sentiment Analysis Logic
 
 The sentiment classification is computed as follows:
 
@@ -125,88 +125,81 @@ Extract Rotten Tomatoes rating (if available).
 
 Normalize values to percentage scale.
 
-Compute an aggregated audience score.
+Compute aggregated audience score.
 
 Apply classification thresholds:
 
 Score Range	Classification
-75 and above	Positive
-50–74	Mixed
-Below 50	Negative
+75 and above	🟢 Positive
+50–74	🟡 Mixed
+Below 50	🔴 Negative
 
-A structured audience insight summary is generated based on the classification result.
+A structured audience insight summary is generated based on classification.
 
 This ensures deterministic and explainable sentiment output.
 
-Local Development Setup
-1. Clone the Repository
+🖥 Local Development Setup
+1️⃣ Clone Repository
 git clone https://github.com/your-username/ai-movie-insight-builder.git
-2. Install Dependencies
+2️⃣ Install Dependencies
 npm install
-3. Configure Environment Variables
+3️⃣ Configure Environment Variables
 
-Create a .env.local file in the root directory:
+Create a .env.local file:
 
 OMDB_API_KEY=your_api_key_here
-4. Run Development Server
+4️⃣ Run Development Server
 npm run dev
 
 Open:
 
 http://localhost:3000
-Running Tests
+🧪 Running Tests
 
 Unit tests are included for IMDb ID validation logic.
 
-Run:
-
 npm test
-Deployment
+🌍 Deployment
 
 The application is deployed using Vercel.
 
-Environment variables are configured securely within the Vercel dashboard:
+Environment variable configured in production:
 
 OMDB_API_KEY=your_api_key
 
-The production build is accessible via the live application link above.
+Live production link is provided at the top of this document.
 
-Assumptions
+📌 Assumptions
 
 Sentiment is derived from aggregated rating data rather than raw review text.
 
 The OMDb API free tier provides sufficient metadata for demonstration.
 
-Deterministic sentiment logic was chosen for clarity and explainability.
+Deterministic logic was chosen for explainability and clarity.
 
-Future Improvements
+🔮 Future Enhancements
 
-Integrate NLP-based sentiment analysis using review data
+Integrate NLP-based sentiment analysis using review text
 
-Implement server-side caching for repeated queries
+Implement caching for repeated queries
 
-Add accessibility enhancements
+Improve accessibility (ARIA support)
 
-Introduce advanced filtering (genre, year range)
+Add advanced filters (genre, year range)
 
-Add search history or bookmarking functionality
+Implement search history or bookmarking
 
-Improve performance optimization
+Optimize performance and scalability
 
-Evaluation Criteria Alignment
+✅ Evaluation Criteria Alignment
 
 This implementation satisfies:
 
-Full functional requirements
-
-Clean, modular architecture
-
-Proper validation and error handling
-
-Basic unit testing
-
-Responsive UI
-
-Live deployment without local setup
+✔ Full functional requirements
+✔ Clean modular architecture
+✔ Proper validation and error handling
+✔ Basic unit testing
+✔ Responsive UI
+✔ Live deployment without local setup
 
 The application is production-ready and structured according to modern full-stack best practices.
